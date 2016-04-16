@@ -12,6 +12,6 @@ package uits.jv1604.algorithms;
 public class HelloWorld {
     
     public static void main(String[] args) {
-        System.out.print("Здравствуй, Мир!!!");
+        System.out.print("Здравствуй, Миррр!!!");
     }
 }
