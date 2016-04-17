@@ -3,15 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uits.jv1604.algorithms;
+
 
 /**
  *
  * @author Артём
  */
-public class HelloWorld {
-    
+public class NewClass {
     public static void main(String[] args) {
-        System.out.print("Здравствуй, Миррр!!!");
+        int i, j;
+        for (i = 0; i < 10; i++) {
+            for (j = i; j < 10; j++) {
+                System.out.print(".");
+            }
+            System.out.println();
+        }
     }
 }

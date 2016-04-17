@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uits.jv1604.algorithms;
+package uits.jv1604.hometask1;
 
 /**
  *
