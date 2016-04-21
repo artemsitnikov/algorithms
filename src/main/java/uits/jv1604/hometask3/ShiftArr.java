@@ -10,17 +10,47 @@ package uits.jv1604.hometask3;
  * @author Артём
  */
 import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class ShiftArr {
     public static void main(String[] args) {
-        int [][] arr = {{0, 1, 2, 3, 4},{5, 6, 7, 8, 9}};
+        int [] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        System.out.println(Arrays.toString(arr) + " исходный массив");
         
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr [i][j] + "_");
-
-            }
-            System.out.println();
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("введите число, на которое необходимо сдвинуть массив: ");
+        
+        int shift;      // фактический сдвиг
+        int push = 0;   // введенный в консоль желаемый сдвиг
+        push += sc.nextInt();
+        int [] tmp = new int [10];
+        if (push > arr.length) {    // если введенное число больше длины массива то:
+            shift = push % arr.length;  // делаем сдвиг на резульат деления по модулю 
+            
+            System.arraycopy(arr, shift, tmp, 0, arr.length - shift);
+            System.arraycopy(arr, 0, tmp, arr.length - shift, shift);
+                       
+            System.out.print(Arrays.toString(tmp));
+            System.out.println(" результат сдвига на " + push);
         }
-    }
+        if (push == 0) {
+            System.out.print(Arrays.toString(arr));
+            System.out.println(" результат сдвига на " + push);
+        }
+        if (push == 10) {
+            System.out.print(Arrays.toString(arr));
+            System.out.println(" результат сдвига на " + push);
+        }
+        if (push < arr.length) {
+            
+            System.arraycopy(arr, push, tmp, 0, arr.length - push);
+            System.arraycopy(arr, 0, tmp, arr.length - push, push);
+                       
+            System.out.print(Arrays.toString(tmp));
+            System.out.println(" результат сдвига на " + push);
+        }
+        
+    } 
 }
