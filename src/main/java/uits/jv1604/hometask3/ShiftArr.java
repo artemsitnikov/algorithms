@@ -21,36 +21,66 @@ public class ShiftArr {
         Scanner sc = new Scanner (System.in);
         
         System.out.println("введите число, на которое необходимо сдвинуть массив: ");
+        System.out.println("   / для сдвига влево - положительное число.");
+        System.out.println("   / для сдвига вправо - отрицательное число.");
+        System.out.println("сделайте свой выбор: ");
         
         int shift;      // фактический сдвиг
         int push = 0;   // введенный в консоль желаемый сдвиг
         push += sc.nextInt();
         int [] tmp = new int [10];
-        if (push > arr.length) {    // если введенное число больше длины массива то:
-            shift = push % arr.length;  // делаем сдвиг на резульат деления по модулю 
+        if (push > 0) {
+            if (push > arr.length) {    // если введенное число больше длины массива то:
+                shift = push % arr.length;  // делаем сдвиг на резульат деления по модулю 
             
-            System.arraycopy(arr, shift, tmp, 0, arr.length - shift);
-            System.arraycopy(arr, 0, tmp, arr.length - shift, shift);
+                System.arraycopy(arr, shift, tmp, 0, arr.length - shift);
+                System.arraycopy(arr, 0, tmp, arr.length - shift, shift);
                        
-            System.out.print(Arrays.toString(tmp));
-            System.out.println(" результат сдвига на " + push);
+                System.out.print(Arrays.toString(tmp));
+
+            }   
+            if (push < arr.length) {
+            
+                System.arraycopy(arr, push, tmp, 0, arr.length - push);
+                System.arraycopy(arr, 0, tmp, arr.length - push, push);
+                       
+                System.out.print(Arrays.toString(tmp));
+
+            }
+            if (push == 10) {
+                System.out.print(Arrays.toString(arr));
+
+            }
         }
         if (push == 0) {
-            System.out.print(Arrays.toString(arr));
-            System.out.println(" результат сдвига на " + push);
-        }
-        if (push == 10) {
-            System.out.print(Arrays.toString(arr));
-            System.out.println(" результат сдвига на " + push);
-        }
-        if (push < arr.length) {
+                System.out.print(Arrays.toString(arr));
+
+            }
+        if (push < 0) {
+            int sh = push - push - push;
             
-            System.arraycopy(arr, push, tmp, 0, arr.length - push);
-            System.arraycopy(arr, 0, tmp, arr.length - push, push);
+            if (sh > arr.length) {
+                shift = arr.length - (sh % arr.length);
+                System.arraycopy(arr, shift, tmp, 0, arr.length - shift);
+                System.arraycopy(arr, 0, tmp, arr.length - shift, shift);
                        
-            System.out.print(Arrays.toString(tmp));
-            System.out.println(" результат сдвига на " + push);
+                System.out.print(Arrays.toString(tmp));
+            
+            }
+         
+            if (sh < arr.length) {
+                shift = arr.length - sh;
+                System.arraycopy(arr, shift, tmp, 0, arr.length - shift);
+                System.arraycopy(arr, 0, tmp, arr.length - shift, shift);
+                       
+                System.out.print(Arrays.toString(tmp));
+
+            }
+            if (push == -10) {
+                System.out.print(Arrays.toString(arr));
+
+            }
         }
-        
-    } 
+        System.out.println(" результат сдвига на " + push);
+    }
 }
